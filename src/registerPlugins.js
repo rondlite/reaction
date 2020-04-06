@@ -1,7 +1,12 @@
 /* npm package imports */
 import registerAuthenticationPlugin from "@reactioncommerce/plugin-authentication";
+import registerDiscountCodesPlugin from "@reactioncommerce/plugin-discount-codes";
+import registerExamplePaymentsPlugin from "@reactioncommerce/plugin-payments-example";
+import registerNavigationPlugin from "@reactioncommerce/plugin-navigation";
 import registerSimpleAuthorizationPlugin from "@reactioncommerce/plugin-simple-authorization";
+import registerSitemapGeneratorPlugin from "@reactioncommerce/plugin-sitemap-generator";
 import registerSystemInformationPlugin from "@reactioncommerce/plugin-system-information";
+import registerTranslationsPlugin from "@reactioncommerce/plugin-translations";
 
 /* node-app imports */
 /* core-services */
@@ -23,23 +28,18 @@ import registerTagsPlugin from "./core-services/tags/index.js";
 import registerTaxesPlugin from "./core-services/taxes/index.js";
 
 /* plugins */
-import registerDiscountCodesPlugin from "./plugins/discount-codes/index.js";
 import registerEmailTemplatesPlugin from "./plugins/email-templates/index.js";
-import registerExamplePaymentsPlugin from "./plugins/payments-example/index.js";
 import registerJobQueuePlugin from "./plugins/job-queue/index.js";
-import registerNavigationPlugin from "./plugins/navigation/index.js";
 import registerNotificationsPlugin from "./plugins/notifications/index.js";
 import registerShippingRatesPlugin from "./plugins/shipping-rates/index.js";
 import registerSimpleInventoryPlugin from "./plugins/simple-inventory/index.js";
 import registerSimplePricingPlugin from "./plugins/simple-pricing/index.js";
 import registerSimpleSchemaPlugin from "./plugins/simple-schema/index.js";
-import registerSitemapGeneratorPlugin from "./plugins/sitemap-generator/index.js";
 import registerSMTPEmailPlugin from "./plugins/email-smtp/index.js";
 import registerStripePaymentsPlugin from "./plugins/payments-stripe/index.js";
 import registerSurchargesPlugin from "./plugins/surcharges/index.js";
 import registerTaxesRatesPlugin from "./plugins/taxes-rates/index.js";
 import registerTestAddressValidationPlugin from "./plugins/address-validation-test/index.js";
-import registerTranslationsPlugin from "./plugins/translations/index.js";
 
 /**
  * @summary A function in which you should call `register` function for each API plugin,
