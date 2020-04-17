@@ -1,24 +1,46 @@
-[{
+[
+{
   "i18n": "nl",
   "ns": "reaction-i18n",
   "translation": {
-    "reaction-i18n": {
-      "admin": {
-        "i18nSettings": {
-          "shopLocalization": "Winkel Lokalisatie",
-          "enabledCurrencies": "valuta",
-          "enabledLanguages": "Talen",
-          "allOn": "All On",
-          "allOff": "All Off"
-        },
-        "baseUOM": "Base maateenheid",
-        "currency": "Basisvaluta",
-        "currencyTooltip": "Shop prijslijst",
-        "language": "Base Taal",
-        "languageTooltip": "Deze taal wordt gebruikt als apparaat taaldetectie niet worden afgekeurd",
-        "timezone": "Tijdzone",
-        "timezoneOptions": "Kies tijdzone"
+  "reaction-i18n": {
+    "admin": {
+      "i18nSettings": {
+        "shopLocalization": "Shop Localization",
+        "enabledCurrencies": "Valuta",
+        "enabledLanguages": "Talen",
+        "allOn": "All On",
+        "allOff": "All Off",
+        "reloadTranslations": "Herlaad vertalingen",
+        "reloadStarted": "Vertalingen opnieuw laden voor de huidige winkel.",
+        "reloadAllStarted": "Vertalingen opnieuw laden voor alle winkels.",
+        "reloadSuccess": "Vertalingen zijn opnieuw geladen voor de huidige winkel.",
+        "reloadAllSuccess": "Vertalingen zijn opnieuw geladen voor alle winkels.",
+        "reloadError": "Vertalingen konden niet opnieuw worden geladen voor de huidige winkel.",
+        "reloadAllError": "Vertalingen konden niet voor alle winkels opnieuw worden geladen."
+      },
+      "baseUOL": "Basiseenheid van lengte",
+      "baseUOM": "Basiseenheid",
+      "uol": {
+        "Inches": "Inches",
+        "Centimeters": "Centimeters",
+        "Feet": "Feet"
+      },
+      "uom": {
+        "oz": "Ons",
+        "lb": "Pond",
+        "g": "Gram",
+        "kg": "Kilogram"
+      },
+      "currency": "Valuta",
+      "currencyTooltip": "Standaardvaluta winkelen",
+      "language": "Taal",
+      "languagePlaceholder": "Taal",
+      "languageTooltip": "Deze taal wordt gebruikt als de taaldetectie van het apparaat niet werkt",
+      "timezone": "Timezone",
+      "timezoneLabel": "Kies een tijdzone"
       }
     }
   }
-}]
+}
+]

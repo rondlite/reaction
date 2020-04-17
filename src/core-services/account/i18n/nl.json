@@ -7,7 +7,8 @@
         "dashboard": {
           "accountsLabel": "Rekeningen",
           "accountsTitle": "Rekeningen",
-          "accountsDescription": "Account instellingen"
+          "accountsDescription": "Account instellingen",
+          "manageGroups": "Manage Groups"
         },
         "settings": {
           "continue": "Voortzetten",
@@ -26,7 +27,7 @@
         },
         "groupsInvite": {
           "name": "John Smith",
-          "email": "johnsmith@reactioncommerce.com",
+          "email": "johnsmith@demandcluster.com",
           "inviteOwnerError": "U kunt geen gebruiker als eigenaar uitnodigen. Bevorder een bestaande admin",
           "groupRequired": "Een groep is verplicht een admin uit te nodigen",
           "cannotInvite": "U kunt geen groep uitnodigen",

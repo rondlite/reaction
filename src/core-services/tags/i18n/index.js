@@ -1,4 +1,5 @@
 import en from "./en.json";
+import nl from "./nl.json";
 import pt from "./pt.json";
 
 //
@@ -9,6 +10,7 @@ import pt from "./pt.json";
 export default {
   translations: [
     ...en,
+    ...nl,
     ...pt
   ]
 };

@@ -1,0 +1,6 @@
+#!/bin/bash
+cat <<EOF | docker run --interactive node bash > ./src/plugins/channel-manager/schemas/schemas.graphql
+set -eu
+npm install --silent --global get-graphql-schema >/dev/null
+get-graphql-schema "http://demandjs-graphql:4001"
+EOF

@@ -41,6 +41,12 @@ import registerSurchargesPlugin from "./plugins/surcharges/index.js";
 import registerTaxesRatesPlugin from "./plugins/taxes-rates/index.js";
 import registerTestAddressValidationPlugin from "./plugins/address-validation-test/index.js";
 
+import registerDummyData from "@outgrowio/reaction-dummy-data/index.js";
+
+import registerChannelsPlugin from "./plugins/channel-manager/index.js";
+
+
+
 /**
  * @summary A function in which you should call `register` function for each API plugin,
  *   in the order in which you want to register them.
@@ -161,4 +167,12 @@ export default async function registerPlugins(app) {
    */
   await registerNotificationsPlugin(app); // OPTIONAL
   await registerTestAddressValidationPlugin(app); // OPTIONAL
+  /**
+   * Dummy Data
+   */
+  await registerDummyData(app); // OPTIONAL
+/**
+ * Channels
+ */
+  await registerChannelsPlugin(app);
 }

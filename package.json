@@ -40,6 +40,9 @@
     "accounting-js": "~1.1.1",
     "apollo-server": "~2.9.4",
     "apollo-server-express": "~2.9.4",
+    "apollo-link": "~1.2.13",
+    "apollo-link-http": "~1.5.16",
+    "apollo-link-context": "~1.0.19",
     "body-parser": "~1.19.0",
     "cors": "~2.8.5",
     "cuid": "~2.1.6",
@@ -69,6 +72,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@outgrowio/reaction-dummy-data": "^1.0.0",
     "@reactioncommerce/babel-remove-es-create-require": "~1.0.0",
     "@reactioncommerce/data-factory": "~1.0.1",
     "@reactioncommerce/eslint-config": "~2.1.0",
