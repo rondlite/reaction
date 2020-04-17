@@ -18,7 +18,7 @@ services:
     networks:
       - proxy
       - internal
-    image: reactioncommerce/reaction:3.4.0
+    image: reactioncommerce/reaction:3.6.0
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.demandjs-api.rule=Host(`api.demandcluster.com`)"
