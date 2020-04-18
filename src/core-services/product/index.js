@@ -3,6 +3,7 @@ import queries from "./queries/index.js";
 import policies from "./policies.json";
 import resolvers from "./resolvers/index.js";
 import schemas from "./schemas/index.js";
+import i18n from "./i18n/index.js";
 import {
   Product,
   ProductVariant,
@@ -20,6 +21,7 @@ export default async function register(app) {
     label: "Product",
     name: "reaction-product",
     version: app.context.appVersion,
+    i18n,
     collections: {
       Products: {
         name: "Products",

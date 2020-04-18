@@ -5,8 +5,8 @@
     "reaction-accounts": {
       "admin": {
         "dashboard": {
-          "accountsLabel": "Rekeningen",
-          "accountsTitle": "Rekeningen",
+          "accountsLabel": "Accounts",
+          "accountsTitle": "Accounts",
           "accountsDescription": "Account instellingen"
         },
         "settings": {

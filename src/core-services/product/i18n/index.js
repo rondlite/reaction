@@ -1,5 +1,4 @@
-import en from "./en.json";
-import pt from "./pt.json";
+
 import nl from "./nl.json";
 //
 // we want all the files in individual
@@ -8,8 +7,6 @@ import nl from "./nl.json";
 //
 export default {
   translations: [
-    ...en,
-    ...pt,
     ...nl,
   ]
 };

@@ -14,7 +14,7 @@
       },
       "admin": {
         "shortcut": {
-          "ordersLabel": "orders"
+          "ordersLabel": "Orders"
         },
         "orderRisk": {
           "high": "Hoog risico",
@@ -22,8 +22,8 @@
           "riskCaptureWarn": "Je staat op het punt om de bestelling vast te leggen met een ladingrisico. Bevestig voordat u verder gaat."
         },
         "dashboard": {
-          "ordersLabel": "orders",
-          "ordersTitle": "orders",
+          "ordersLabel": "Orders",
+          "ordersTitle": "Orders",
           "ordersDescription": "Vervul uw bestellingen",
           "clearSearch": "Duidelijk"
         },
@@ -60,10 +60,10 @@
             "id": "ID",
             "total": "Totaal",
             "shipping": "Verzenden",
-            "status": "Toestand"
+            "status": "Status"
           },
           "filter": {
-            "status": "Toestand",
+            "status": "Status",
             "dateRange": "Datumbereik",
             "shippingStatus": "Verzendstatus",
             "new": "Nieuw",

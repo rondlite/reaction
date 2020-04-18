@@ -7,31 +7,39 @@
 version: '3.4'
 
 networks:
-  reaction:
-    external:
-      name: reaction.localhost
+  proxy:
+    external: true
+  internal:
+    external: 
+      name: demandjs.localhost
 
 services:
   api:
-    image: reactioncommerce/reaction:3.4.0
+    networks:
+      - proxy
+      - internal
+    image: reactioncommerce/reaction:3.6.0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.demandjs-api.rule=Host(`api.demandcluster.com`)"
+      - "traefik.http.routers.demandjs-api.tls=true"
+      - "traefik.http.routers.demandjs-api.entrypoints=websecure"
+      - "traefik.http.routers.demandjs-api.service=demandjs-api-service"
+      - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
+      - "traefik.docker.network=proxy"
     depends_on:
       - mongo
     env_file:
       - ./.env
-    networks:
-      default:
-      reaction:
-    ports:
-      - "3000:3000"
-
+ 
   mongo:
     image: mongo:4.2.0
     command: mongod --oplogSize 128 --replSet rs0 --storageEngine=wiredTiger
+
     networks:
-      default:
-      reaction:
+      - internal
     ports:
-      - "27017:27017"
+     - "27017"
     volumes:
       - mongo-db4:/data/db
 

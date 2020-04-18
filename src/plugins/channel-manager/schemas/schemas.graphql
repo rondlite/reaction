@@ -1,0 +1,471 @@
+directive @cacheControl(maxAge: Int, scope: CacheControlScope) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+type Category {
+  """The chanelid of the Category"""
+  id: Int
+
+  """The id of the Category"""
+  category_id: String
+
+  """The location of the Category"""
+  category: String
+
+  """The name of the Category"""
+  name: String
+}
+
+input Channelid {
+  """The id of the Channel"""
+  channelid: Int!
+
+  """Searchstring for the Category"""
+  search: String
+}
+
+type ChannelInfo {
+  """The ID of the Channel"""
+  id: Int
+
+  """Channel market of the Channel"""
+  channel_market: String
+
+  """Name of the Channel"""
+  channel: String
+
+  """The filetype of the Channel"""
+  type: Filetype
+
+  """The country of the Channel"""
+  country: String
+
+  """The mapping of the Channel"""
+  mapping: [ChannelMap]
+}
+
+type ChannelMap {
+  """The order of the map"""
+  order: Int
+
+  """The description of the map"""
+  description: String
+
+  """The mapping towards a new element"""
+  to: String
+
+  """The mapping from a new element"""
+  from: String
+
+  """If the element is mandatory"""
+  status: String
+
+  """An example of the channel"""
+  example: String
+}
+
+input Cronupdate {
+  """The id of the cron"""
+  id: Int!
+
+  """The minute the feed needs to be ran"""
+  minute: Int!
+
+  """The hour(s) the feed needs to be ran"""
+  hours: String!
+}
+
+"""the Currency types"""
+enum CurrencyStock {
+  EUR
+  USD
+  GBP
+}
+
+"""Information about a ExportFeed"""
+type ExportFeed {
+  """ID of the Channel"""
+  id: Int!
+
+  """The Id of the Channel"""
+  channel: Int!
+
+  """The name of the Channel"""
+  name: String
+
+  """The title of the Channel editable by user"""
+  title: String
+
+  """The status of the feed"""
+  status: String
+
+  """Amount of items found in the feed"""
+  items: Int
+
+  """The main field the feed needs to loop on"""
+  loopon: String
+
+  """The unique id of the feed"""
+  unique: String
+
+  """The amount of doubles found in the feed calculated on the uniqueid"""
+  doubles: Int
+
+  """The url the feed can be donwloaden on"""
+  url: String
+
+  """The seconds the feed took to generate"""
+  tookSeconds: Float
+
+  """The companyid of the user"""
+  companyid: Int!
+
+  """The userid of the user that created the feed"""
+  userid: Int!
+
+  """The minute the feed needs to be ran"""
+  minute: Int
+
+  """The hour(s) the feed needs to be ran"""
+  hours: String
+
+  """the last modified timestamp of the feed"""
+  lastrun: String
+
+  """the lasttime the feed is downloaded"""
+  modified: String
+
+  """The currency state of the feed"""
+  currency: CurrencyStock
+
+  """The filetype of the feed"""
+  type: Filetype
+}
+
+input FeedimportInput {
+  """The id of the channel"""
+  url: String!
+
+  """The title of the channel"""
+  name: String
+}
+
+input FeedInput {
+  """The id of the channel"""
+  channelid: Int!
+
+  """The title of the channel"""
+  title: String!
+
+  """The companyname of the channel"""
+  companyname: String
+
+  """The currency of the channel"""
+  currency: CurrencyStock
+}
+
+"""the Feed types"""
+enum Feedtype {
+  import
+  export
+}
+
+input Feedupdate {
+  """The id of the cron"""
+  id: Int!
+
+  """The url of the feed"""
+  url: String
+
+  """The title of the feed"""
+  title: String
+
+  """The name of the feed"""
+  name: String
+
+  """The companyname of the feed"""
+  companyname: String
+
+  """The currency of the feed"""
+  currency: CurrencyStock
+}
+
+"""the File types"""
+enum Filetype {
+  xml
+  csv
+  txt
+  tsv
+  tsvgz
+}
+
+input IDchannelfield {
+  """The id of the query"""
+  id: Int
+
+  """The channel of the query"""
+  channel: Feedtype!
+}
+
+input IDchannelsearch {
+  """ID to update"""
+  id: Int
+
+  """Search string for Channels"""
+  search: String
+}
+
+input IDfield {
+  """The id of the mutation"""
+  id: Int!
+}
+
+"""Information about a ImportFeed"""
+type ImportFeed {
+  """ID of the Channel"""
+  id: Int!
+
+  """The status of the feed"""
+  status: String
+
+  """Amount of items found in the feed"""
+  items: Int
+
+  """The main field the feed needs to loop on"""
+  loopon: String
+
+  """The unique id of the feed"""
+  unique: String
+
+  """The amount of doubles found in the feed calculated on the uniqueid"""
+  doubles: Int
+
+  """The url the feed can be donwloaden on"""
+  url: String
+
+  """The seconds the feed took to generate"""
+  tookSeconds: Float
+
+  """The companyid of the user"""
+  companyid: Int!
+
+  """The userid of the user that created the feed"""
+  userid: Int!
+
+  """The minute the feed needs to be ran"""
+  minute: Int
+
+  """The hour(s) the feed needs to be ran"""
+  hours: String
+
+  """the last modified timestamp of the feed"""
+  modified: String
+
+  """The filetype of the feed"""
+  type: Filetype
+}
+
+input InputStats {
+  """Range from date of the results"""
+  type: Feedtype
+
+  """Range from date of the results"""
+  datefrom: String
+
+  """Range to date of the results"""
+  dateto: String
+
+  """page of the results"""
+  page: Int
+
+  """Limit the results max 100"""
+  limit: Int
+}
+
+input ItemFilter {
+  """limit the result min(10) max(100)"""
+  limit: Int
+
+  """The page of the resuts"""
+  page: Int
+
+  """The search string of the resuts"""
+  search: String
+}
+
+type Items {
+  """The id of the item"""
+  id: String
+
+  """The title of the item"""
+  title: String
+
+  """The price of the item"""
+  price: String
+
+  """The mrsp of the item"""
+  mrsp: String
+
+  """The brands of the item"""
+  brands: String
+
+  """The description of the item"""
+  description: String
+
+  """The ean of the item"""
+  ean: String
+
+  """The image of the item"""
+  image: String
+
+  """The category of the item"""
+  category: String
+
+  """The created date of the item"""
+  DJS_created: String
+
+  """The modified date of the item"""
+  DJS_modified: String
+
+  """The importfeed id of the item"""
+  DJS_feedid: Int
+
+  """The last status change of the item"""
+  DJS_status: String
+}
+
+type ItemsCategory {
+  """The unique category name of the items"""
+  category: String
+
+  """the amount found of the unique category"""
+  count: Int
+}
+
+type Mutation {
+  ImportInsert(input: FeedimportInput!): ResultImport
+  ImportUpdate(input: Feedupdate!): ResultUpdate
+  ImportCron(input: Cronupdate!): ResultUpdate
+  ImportDelete(input: IDfield!): ResultUpdate
+  ExportInsert(input: FeedInput!): ResultUpdate
+  ExportUpdate(input: Feedupdate!): ResultUpdate
+  ExportCron(input: Cronupdate!): ResultUpdate
+  ExportDelete(input: IDfield!): ResultUpdate
+  UpdateUnique(input: UniqueField): ResultUpdate
+  SaveMapping(input: SaveJSON!): ResultUpdate
+  SaveUserRule(input: SaveJSON!): ResultUpdate
+}
+
+type Query {
+  ExportFeed(input: IDfield): [ExportFeed]!
+  ImportFeed(input: IDfield): [ImportFeed]!
+  GetStruct: ResultStruct
+  GetChannels(input: IDchannelsearch): [ChannelInfo]
+  GetChannelsCategory(input: Channelid): [Category]
+  GetItems(input: ItemFilter): [Items]
+  GetItemsCategory: [ItemsCategory]
+  GetMapping(input: IDchannelfield!): [UserMap]
+  GetUserRule(input: IDchannelfield!): [UserMap]
+  GetStats(input: InputStats): [StatsInfo]
+}
+
+type ResultImport {
+  """The data of the import url"""
+  data: String
+
+  """The id of the ImportFeed"""
+  id: Int!
+
+  """The userid of the ImportFeed"""
+  userid: Int!
+
+  """The companyid of the ImportFeed"""
+  companyid: Int!
+
+  """The type of the ImportFeed"""
+  type: Feedtype
+
+  """error message if there is one"""
+  error: String
+}
+
+type ResultStruct {
+  """The data of the feed structures"""
+  struct: String
+
+  """The companyid of the structures"""
+  companyid: Int!
+}
+
+"""Call succes or error result"""
+type ResultUpdate {
+  """The succes result of the Request"""
+  succes: Boolean
+
+  """The error result of the Request"""
+  error: String
+
+  """The inserted id if nessecary of the Request"""
+  insertedId: Int
+}
+
+input SaveJSON {
+  """ID to update"""
+  id: Int!
+
+  """Range from date of the results"""
+  channel: Feedtype!
+
+  """The json string to save"""
+  json: String!
+}
+
+type StatsInfo {
+  """Log Items object"""
+  data: String
+
+  """Log Category object"""
+  category: String
+
+  """The id of the feed log"""
+  id: Int!
+
+  """The Items of the feed log"""
+  items: Int
+
+  """The date of the feed log"""
+  created: String
+
+  """The doubles of the feed log"""
+  doubles: Int
+
+  """How log it took to process the feed"""
+  timetook: Float
+
+  """Import or export feed"""
+  channel: Feedtype!
+}
+
+input UniqueField {
+  """ID to update"""
+  id: Int!
+
+  """Update unique string"""
+  unique: String!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+"""Information about a Mapping"""
+type UserMap {
+  id: Int!
+  userid: Int!
+  companyid: Int!
+  channel: Feedtype!
+  data: String
+}
+
