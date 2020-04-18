@@ -13,7 +13,7 @@ import registerPluginShops from "@reactioncommerce/api-plugin-shops";
 import registerPluginSimpleAuthorization from "@reactioncommerce/plugin-simple-authorization";
 import registerPluginSitemapGenerator from "@reactioncommerce/plugin-sitemap-generator";
 import registerPluginSimpleSchema from "@reactioncommerce/api-plugin-simple-schema";
-import registerPluginSystemInformation from "@reactioncommerce/plugin-system-information";
+//import registerPluginSystemInformation from "@reactioncommerce/plugin-system-information";
 import registerPluginTranslations from "@reactioncommerce/plugin-translations";
 
 /* node-app imports */
@@ -73,7 +73,7 @@ export default async function registerPlugins(app) {
   await registerPluginEmail(app); // REQUIRED
   await registerPluginAddressValidation(app); // REQUIRED
   await registerPluginTranslations(app); // OPTIONAL
-  await registerPluginSystemInformation(app); // OPTIONAL
+  //await registerPluginSystemInformation(app); // OPTIONAL
 
   /**
    * Email
