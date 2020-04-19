@@ -41,6 +41,10 @@ import registerPluginStripePayments from "./plugins/payments-stripe/index.js";
 import registerPluginSurcharges from "./plugins/surcharges/index.js";
 import registerPluginTaxesRates from "./plugins/taxes-rates/index.js";
 
+
+import registerChannelsPlugin from "./plugins/channel-manager/index.js";
+
+
 /**
  * @summary A function in which you should call `register` function for each API plugin,
  *   in the order in which you want to register them.
@@ -161,4 +165,10 @@ export default async function registerPlugins(app) {
    */
   await registerPluginNotifications(app); // OPTIONAL
   await registerPluginAddressValidationTest(app); // OPTIONAL
+
+  /**
+ * Channels
+ */
+await registerChannelsPlugin(app);
+
 }
