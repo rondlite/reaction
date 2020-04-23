@@ -39,7 +39,7 @@ services:
     networks:
       - internal
     ports:
-     - "27017"
+     - "32828:27017"
     volumes:
       - mongo-db4:/data/db
 

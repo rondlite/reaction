@@ -310,7 +310,7 @@ type Items {
   mrsp: String
 
   """The brands of the item"""
-  brands: String
+  brand: String
 
   """The description of the item"""
   description: String
@@ -319,7 +319,7 @@ type Items {
   ean: String
 
   """The image of the item"""
-  image: String
+  image: [String]
 
   """The category of the item"""
   category: String
@@ -389,7 +389,7 @@ type ResultImport {
   type: Feedtype
 
   """error message if there is one"""
-  error: String
+  errors: String
 }
 
 type ResultStruct {
@@ -402,11 +402,11 @@ type ResultStruct {
 
 """Call succes or error result"""
 type ResultUpdate {
-  """The succes result of the Request"""
-  succes: Boolean
+  """The success result of the Request"""
+  success: Boolean
 
   """The error result of the Request"""
-  error: String
+  errors: String
 
   """The inserted id if nessecary of the Request"""
   insertedId: Int
@@ -468,3 +468,4 @@ type UserMap {
   channel: Feedtype!
   data: String
 }
+
