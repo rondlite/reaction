@@ -41,6 +41,8 @@ import registerPluginStripePayments from "./plugins/payments-stripe/index.js";
 import registerPluginSurcharges from "./plugins/surcharges/index.js";
 import registerPluginTaxesRates from "./plugins/taxes-rates/index.js";
 
+import registerDummyData from "@outgrowio/reaction-dummy-data/index.js";
+
 
 import registerChannelsPlugin from "./plugins/channel-manager/index.js";
 
@@ -171,5 +173,11 @@ export default async function registerPlugins(app) {
  * Channels
  */
 await registerChannelsPlugin(app);
+
+
+
+// Built-in plugin register calls go here
+
+await registerDummyData(app);
 
 }

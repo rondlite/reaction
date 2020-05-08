@@ -7,7 +7,6 @@ import config from "./config.js";
 import createSaveImageJob from "./util/createSaveImageJob.js";
 
 const require = createRequire(import.meta.url);
-
 const {
   FileDownloadManager,
   FileRecord,
@@ -16,7 +15,9 @@ const {
   RemoteUrlWorker,
   TempFileStoreWorker
 } = require("@reactioncommerce/file-collections");
-const GridFSStore = require("@reactioncommerce/file-collections-sa-gridfs").default;
+const S3Store = require("@rondlite/reaction-file-collections-sa-s3").default;
+
+//const GridFSStore = require("@reactioncommerce/file-collections-sa-gridfs").default;
 
 /**
  * @returns {undefined}
@@ -74,14 +75,14 @@ export default function setUpFileCollections({
    * @summary buildGFS returns a fresh GridFSStore instance from provided image transform settings.
    * @returns {GridFSStore} New GridFS store instance
    */
+  
   const buildGFS = ({ name, transform }) => (
-    new GridFSStore({
-      chunkSize: gridFSStoresChunkSize,
-      collectionPrefix: "cfs_gridfs.",
-      db,
-      mongodb,
-      name,
+    new S3Store({ 
+      name, // Should be provided within buildGFS
+      isPublic: true,
+      objectACL: "public-read",
       async transformWrite(fileRecord) {
+   
         if (!transform) return null;
 
         const { size, fit, format, type } = transform;
@@ -90,7 +91,7 @@ export default function setUpFileCollections({
         // The new size gets set correctly automatically by FileCollections package.
         fileRecord.type(type, { store: name });
         fileRecord.extension(format, { store: name });
-
+    
         // resizing image, adding fit, setting output format
         return sharp()
           .resize({ width: size, height: size, fit: sharp.fit[fit], withoutEnlargement: true })

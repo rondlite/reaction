@@ -1,7 +1,9 @@
 
-import graphqlTools from 'graphql-tools'
+import graphqlTools from 'graphql-tools';
 
 import getAnonymousAccessToken from "@reactioncommerce/api-utils/getAnonymousAccessToken.js";
+
+import i18n from './i18n/index.js';
 
 const tokenInfo = getAnonymousAccessToken();
 
@@ -29,7 +31,7 @@ const {createHttpLink} = httpLink;
         ...headers,
         ...(token ? {Authorization: token} : {}),
         ...(userId ? {userId: userId}:{NoUser: true}),
-        ...(account.companyId ? {companyId: account.companyId}:{})
+        ...((account && account.companyId) ? {companyId: account.companyId}:{NoCompany: true})
       },
       ...context,
     };
@@ -44,7 +46,9 @@ const link = ApolloLink.from([authLink, http]);
   export default async function register(app) {
     await app.registerPlugin({
       label: "demandcluster channels",
-      name: "channels",
+      name: "reaction-demandcluster",
+      version: "0.1.0",
+      i18n,
       graphQL: {
         schemas: [remoteSchema]
       }

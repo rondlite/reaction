@@ -1,0 +1,46 @@
+[{
+  "i18n": "en",
+  "ns": "reaction-demandcluster",
+  "translation": {
+    "reaction-demandcluster": {
+      "demandCluster": {
+        "exportChannelsFilter": {
+          "placeholder": "Search by name of export channel"
+        }
+      },
+      "admin": {
+        "demandClusterSetting": {
+          "Export": {
+            "sidebarLabel": "Channel Export"
+          },
+          "Import": {
+            "sidebarLabel": "Channel Import"
+          },
+          "Items": {
+            "sidebarLabel": "Channel Items"
+          }
+
+        },
+        "demandCluster": {
+          "title": "Title",
+          "id": "ID",
+          "channel": "Channel",
+          "country": "Country",
+          "exportChannels": "Export Channels",
+          "importChannels": "Import Channels",
+          "channelMarket": "Channel Market",
+          "color": "secondary",
+          "type": "Type",
+          "actions": "Actions",
+          "addImport": "Add Import Channel",
+          "addExport": "Add Export Channel",
+
+          "exportFrom": "Map from | LOCAL",
+          "exportTo": "Map to | EXTERNAL",
+          "status": "Required"
+
+        }
+      }
+    }
+  }
+}]

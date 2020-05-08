@@ -43,8 +43,14 @@ type ChannelInfo {
   """The country of the Channel"""
   country: String
 
+  """The extra info of the Channel"""
+  extrainfo: [ChannelMap]
+
   """The mapping of the Channel"""
   mapping: [ChannelMap]
+
+  """The error result of the Request"""
+  errors: String
 }
 
 type ChannelMap {
@@ -124,7 +130,7 @@ type ExportFeed {
   companyid: Int!
 
   """The userid of the user that created the feed"""
-  userid: Int!
+  userid: Int
 
   """The minute the feed needs to be ran"""
   minute: Int
@@ -145,12 +151,20 @@ type ExportFeed {
   type: Filetype
 }
 
+type ExportResult {
+  nodes: [ExportFeed]
+  totalCount: Int
+}
+
 input FeedimportInput {
   """The id of the channel"""
   url: String!
 
   """The title of the channel"""
   name: String
+
+  """The type of import file"""
+  filetype: FiletypetypeImport!
 }
 
 input FeedInput {
@@ -200,6 +214,13 @@ enum Filetype {
   txt
   tsv
   tsvgz
+  direct
+}
+
+"""the File types for import"""
+enum FiletypetypeImport {
+  xml
+  csv
 }
 
 input IDchannelfield {
@@ -214,13 +235,33 @@ input IDchannelsearch {
   """ID to update"""
   id: Int
 
+  """exportID to update"""
+  exportid: Int
+
   """Search string for Channels"""
   search: String
+
+  """limit the result min(10) max(100)"""
+  first: Int
+
+  """The page of the resuts"""
+  offset: Int
 }
 
 input IDfield {
   """The id of the mutation"""
   id: Int!
+}
+
+input IDfields {
+  """The id of the mutation"""
+  id: Int
+
+  """limit the result min(10) max(100)"""
+  first: Int
+
+  """The page of the resuts"""
+  offset: Int
 }
 
 """Information about a ImportFeed"""
@@ -253,7 +294,7 @@ type ImportFeed {
   companyid: Int!
 
   """The userid of the user that created the feed"""
-  userid: Int!
+  userid: String
 
   """The minute the feed needs to be ran"""
   minute: Int
@@ -266,6 +307,11 @@ type ImportFeed {
 
   """The filetype of the feed"""
   type: Filetype
+}
+
+type ImportResult {
+  nodes: [ImportFeed]
+  totalCount: Int
 }
 
 input InputStats {
@@ -287,13 +333,18 @@ input InputStats {
 
 input ItemFilter {
   """limit the result min(10) max(100)"""
-  limit: Int
+  first: Int
 
   """The page of the resuts"""
-  page: Int
+  offset: Int
 
   """The search string of the resuts"""
   search: String
+}
+
+type ItemResult {
+  nodes: [Items]
+  totalCount: Int
 }
 
 type Items {
@@ -360,16 +411,21 @@ type Mutation {
 }
 
 type Query {
-  ExportFeed(input: IDfield): [ExportFeed]!
-  ImportFeed(input: IDfield): [ImportFeed]!
+  ExportFeed(input: IDfields): ExportResult!
+  ImportFeed(input: IDfields): ImportResult!
   GetStruct: ResultStruct
-  GetChannels(input: IDchannelsearch): [ChannelInfo]
+  GetChannels(input: IDchannelsearch): resultChannelInfo
   GetChannelsCategory(input: Channelid): [Category]
-  GetItems(input: ItemFilter): [Items]
+  GetItems(input: ItemFilter): ItemResult
   GetItemsCategory: [ItemsCategory]
   GetMapping(input: IDchannelfield!): [UserMap]
   GetUserRule(input: IDchannelfield!): [UserMap]
   GetStats(input: InputStats): [StatsInfo]
+}
+
+type resultChannelInfo {
+  nodes: [ChannelInfo]
+  totalCount: Int
 }
 
 type ResultImport {
@@ -463,7 +519,7 @@ scalar Upload
 """Information about a Mapping"""
 type UserMap {
   id: Int!
-  userid: Int!
+  userid: Int
   companyid: Int!
   channel: Feedtype!
   data: String

@@ -45,6 +45,7 @@
     "@reactioncommerce/plugin-translations": "~1.0.0",
     "@reactioncommerce/random": "~1.0.2",
     "@reactioncommerce/reaction-error": "~1.0.1",
+    "@rondlite/reaction-file-collections-sa-s3": "^1.0.2",
     "accounting-js": "~1.1.1",
     "apollo-link-context": "^1.0.20",
     "apollo-server": "~2.9.4",
@@ -78,6 +79,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@outgrowio/reaction-dummy-data": "^1.1.0",
     "@reactioncommerce/babel-remove-es-create-require": "~1.0.0",
     "@reactioncommerce/data-factory": "~1.0.1",
     "@reactioncommerce/eslint-config": "~2.1.0",
