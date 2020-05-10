@@ -15,11 +15,10 @@ networks:
 
 services:
   api:
-<<<<<<< HEAD
+
     networks:
       - proxy
       - internal
-    image: reactioncommerce/reaction:3.6.0
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.demandjs-api.rule=Host(`api.demandcluster.com`)"
@@ -28,9 +27,8 @@ services:
       - "traefik.http.routers.demandjs-api.service=demandjs-api-service"
       - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
       - "traefik.docker.network=proxy"
-=======
+
     image: reactioncommerce/reaction:3.7.1
->>>>>>> v3.7.1
     depends_on:
       - mongo
     env_file:
