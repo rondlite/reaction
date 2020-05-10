@@ -15,8 +15,8 @@ const {
   RemoteUrlWorker,
   TempFileStoreWorker
 } = require("@reactioncommerce/file-collections");
-const S3Store = require("@rondlite/reaction-file-collections-sa-s3").default;
-
+const S3Store = require("@outgrowio/reaction-file-collections-sa-s3").default;
+        
 //const GridFSStore = require("@reactioncommerce/file-collections-sa-gridfs").default;
 
 /**
@@ -80,9 +80,8 @@ export default function setUpFileCollections({
     new S3Store({ 
       name, // Should be provided within buildGFS
       isPublic: true,
-      objectACL: "public-read",
       async transformWrite(fileRecord) {
-   
+        
         if (!transform) return null;
 
         const { size, fit, format, type } = transform;
