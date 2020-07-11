@@ -4,7 +4,7 @@
 #
 # See comment in docker-compose.dev.yml if you want to run for development.
 
-version: '3.4'
+version: '2'
 
 networks:
   proxy:
@@ -44,6 +44,6 @@ services:
      - "32828:27017"
     volumes:
       - mongo-db4:/data/db
-
+    
 volumes:
   mongo-db4:

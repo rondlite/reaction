@@ -1,7 +1,7 @@
 {
   "simpleSchema": "@reactioncommerce/api-plugin-simple-schema",
   "jobQueue": "@reactioncommerce/api-plugin-job-queue",
-  "files": "@reactioncommerce/api-plugin-files",
+  "files": "@demandcluster/api-plugin-files",
   "shops": "@reactioncommerce/api-plugin-shops",
   "settings": "@reactioncommerce/api-plugin-settings",
   "i18": "@reactioncommerce/api-plugin-i18n",
@@ -36,6 +36,6 @@
   "sitemapGenerator": "@reactioncommerce/api-plugin-sitemap-generator",
   "notifications": "@reactioncommerce/api-plugin-notifications",
   "addressValidationTest": "@reactioncommerce/api-plugin-address-validation-test",
-  "demandcluster": "@demandcluster/reaction-channel-manager"
-
+  "demandcluster": "@demandcluster/reaction-channel-manager",
+  "search": "/public/custom/api-plugin-search/index.js"
 }
