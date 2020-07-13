@@ -8,17 +8,27 @@
 # To go back to running the published image:
 #  rm docker-compose.override.yml
 
-version: '3.4'
+version: '2'
 
 services:
   api:
-    image: reactioncommerce/node-dev:12.14.1-v1
+    image: docker.pkg.github.com/demandcluster/node-dev:12.14.1-v1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.demandjs-api.rule=Host(`api.demandcluster.com`)"
+      - "traefik.http.routers.demandjs-api.tls=true"
+      - "traefik.http.routers.demandjs-api.entrypoints=websecure"
+      - "traefik.http.routers.demandjs-api.service=demandjs-api-service"
+      - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
+      - "traefik.docker.network=proxy"
+
     ports:
       - "3000:3000"
       - "9229:9229"
     volumes:
       - .:/usr/local/src/app:cached
       - api_node_modules:/usr/local/src/app/node_modules # do not link node_modules in, and persist it between dc up runs
+    restart: always
 
 volumes:
   mongo-db4:

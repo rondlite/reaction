@@ -28,17 +28,25 @@ import {
 
 import {
   DiscountCodes
-} from "@reactioncommerce/plugin-discount-codes/src/simpleSchemas.js";
+} from "@reactioncommerce/api-plugin-discounts-codes/src/simpleSchemas.js";
 
 import {
   EmailTemplates
 } from "@reactioncommerce/api-plugin-email-templates/src/simpleSchemas.js";
 
 import {
+  extendInventorySchemas
+} from "@reactioncommerce/api-plugin-inventory/src/simpleSchemas.js";
+
+import {
+  SimpleInventoryCollectionSchema as SimpleInventory
+} from "@reactioncommerce/api-plugin-inventory-simple/src/simpleSchemas.js";
+
+import {
   NavigationItem,
   NavigationTree,
   NavigationTreeItem
-} from "@reactioncommerce/plugin-navigation/src/simpleSchemas.js";
+} from "@reactioncommerce/api-plugin-navigation/src/simpleSchemas.js";
 
 import {
   CommonOrder,
@@ -56,6 +64,10 @@ import {
 } from "@reactioncommerce/api-plugin-orders/src/simpleSchemas.js";
 
 import {
+  extendSimplePricingSchemas
+} from "@reactioncommerce/api-plugin-pricing-simple/src/simpleSchemas.js";
+
+import {
   Product,
   ProductVariant
 } from "@reactioncommerce/api-plugin-products/src/simpleSchemas.js";
@@ -64,41 +76,30 @@ import {
   Shop
 } from "@reactioncommerce/api-plugin-shops/src/simpleSchemas.js";
 
-import {
-  SimpleInventoryCollectionSchema as SimpleInventory
-} from "@reactioncommerce/api-plugin-inventory-simple/src/simpleSchemas.js";
+import FulfillmentMethod from "@reactioncommerce/api-plugin-shipments-flat-rate/src/util/methodSchema.js";
+
+import Restriction from "@reactioncommerce/api-plugin-shipments-flat-rate/src/util/restrictionSchema.js";
 
 import {
   Sitemap
-} from "@reactioncommerce/plugin-sitemap-generator/src/simpleSchemas.js";
+} from "@reactioncommerce/api-plugin-sitemap-generator/src/simpleSchemas.js";
+
+import {
+  Surcharge
+} from "@reactioncommerce/api-plugin-surcharges/src/simpleSchemas.js";
 
 import {
   Tag
 } from "@reactioncommerce/api-plugin-tags/src/simpleSchemas.js";
 
 import {
-  extendInventorySchemas
-} from "../../src/core-services/inventory/simpleSchemas.js";
-
-import {
-  Surcharge
-} from "../../src/plugins/surcharges/util/surchargeSchema.js";
+  extendTaxesSchemas
+} from "@reactioncommerce/api-plugin-taxes/src/simpleSchemas.js";
 
 import {
   TaxRates
-} from "../../src/plugins/taxes-rates/simpleSchemas.js";
+} from "@reactioncommerce/api-plugin-taxes-flat-rate/src/simpleSchemas.js";
 
-import {
-  extendTaxesSchemas
-} from "../../src/core-services/taxes/simpleSchemas.js";
-
-import {
-  extendSimplePricingSchemas
-} from "../../src/plugins/simple-pricing/simpleSchemas.js";
-
-import FulfillmentMethod from "../../src/plugins/shipping-rates/util/methodSchema.js";
-
-import Restriction from "../../src/plugins/shipping-rates/util/restrictionSchema.js";
 
 const schemasToAddToFactory = {
   Account,

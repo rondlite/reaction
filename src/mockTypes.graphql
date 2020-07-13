@@ -4,17 +4,11 @@
 # ========================================
 # core-api / global
 # ========================================
-"A date and time"
-scalar DateTime
-
 "An object with any fields"
 scalar JSONObject
 
 "A string used as a connection cursor"
 scalar ConnectionCursor
-
-"An integer which will be auto-adjusted to be greater than 0 and less than 50 if necessary"
-scalar ConnectionLimitInt
 
 extend type FakeData {
   "AddressConnection lint fix"
@@ -69,33 +63,6 @@ type FakeData {
   doNotUse: String
 }
 
-"Distance units"
-enum DistanceUnit {
-  "Centimeter"
-  cm
-
-  "Foot"
-  ft
-
-  "Inch"
-  in
-}
-
-"Mass units"
-enum MassUnit {
-  "Gram"
-  g
-
-  "Kilogram"
-  kg
-
-  "Pound"
-  lb
-
-  "Ounce"
-  oz
-}
-
 "Fake"
 type ImageSizes {
   "Fake"
@@ -111,12 +78,6 @@ type ImageInfo {
 
 "Fake"
 input MoneyInput {
-  "Fake"
-  fake: String
-}
-
-"Fake"
-type Rate {
   "Fake"
   fake: String
 }
@@ -160,15 +121,6 @@ type AddressEdge {
   node: Address
 }
 
-"The order in which the connection results should be sorted, based on the sortBy field."
-enum SortOrder {
-  "ascending"
-  asc
-
-  "descending"
-  desc
-}
-
 "Mutations have side effects, such as mutating data or triggering a task"
 type Mutation {
   "A test mutation that returns whatever string you send it"
@@ -182,12 +134,6 @@ type Mutation {
 type Query {
   "A test query"
   ping: String!
-}
-
-"Fake"
-type Money {
-  "Fake"
-  fake: String
 }
 
 "Fake"
@@ -272,8 +218,6 @@ extend type FakeData {
     "Fake field to satisfy linting"
     moneyInput: MoneyInput
   ): Cart,
-  "Fake field to satisfy linting"
-  shippingParcel: ShippingParcel
   "Fake field to satisfy linting"
   nodeEdge: NodeEdge,
   "Fake field to satisfy linting"
@@ -448,6 +392,8 @@ extend type FakeData {
     productVariantInput: ProductVariantInput
   ): Product,
   "Fake field to satisfy linting"
+  productVariant: ProductVariant,
+  "Fake field to satisfy linting"
   metafield: Metafield
   "Fake field to satisfy linting"
   imageInfo: ImageInfo,
@@ -493,18 +439,6 @@ A fake type to satisfy linting
 type lives in `api-plugin-settings`
 """
 input ShopSettingsUpdates {
-  "A fake field to satisfy linting"
-  fakeField: String
-}
-
-# ========================================
-# api-plugin-shops
-# ========================================
-"""
-A fake type to satisfy linting
-type lives in `api-plugin-shops`
-"""
-type Shop {
   "A fake field to satisfy linting"
   fakeField: String
 }

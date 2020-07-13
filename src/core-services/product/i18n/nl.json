@@ -1,0 +1,15 @@
+[{
+    "language": "Dutch",
+    "i18n": "nl",
+    "ns": "reaction-product",
+    "translation": {
+      "reaction-product": {
+        "admin":{
+            "products":"Producten",
+            "createProduct":"Voeg product toe"
+        }
+       
+        }
+      }
+    }
+  ]
