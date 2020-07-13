@@ -1,5 +1,5 @@
 # Dockerfile for production builds
-FROM docker.pkg.github.com/demandcluster/node-prod:12.14.1-v1
+FROM docker.pkg.github.com/demandcluster/reaction/reaction-prod:12.14.1-v1
 
 # The `node-prod` base image installs NPM deps with --no-scripts.
 # This prevents the `sharp` lib from working because it installs the binaries

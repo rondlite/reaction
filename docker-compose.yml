@@ -28,7 +28,7 @@ services:
       - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
       - "traefik.docker.network=proxy"
 
-    image: demandcluster/reaction:3.7.1
+    image: docker.pkg.github.com/demandcluster/reaction/reaction-prod:12.14.1-v1
     depends_on:
       - mongo
     env_file:
