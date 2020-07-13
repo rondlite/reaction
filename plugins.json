@@ -14,7 +14,7 @@
   "accounts": "@reactioncommerce/api-plugin-accounts",
   "authentication": "@reactioncommerce/api-plugin-authentication",
   "authorization": "@reactioncommerce/api-plugin-authorization-simple",
-  "products": "@reactioncommerce/api-plugin-products",
+  "products": "/public/custom/api-plugin-products/index.js",
   "catalogs": "@reactioncommerce/api-plugin-catalogs",
   "tags": "@reactioncommerce/api-plugin-tags",
   "pricingSimple": "@reactioncommerce/api-plugin-pricing-simple",
