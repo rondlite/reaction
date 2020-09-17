@@ -2,7 +2,7 @@ stages:
 - name: toestand
   steps:
   - runScriptConfig:
-      image: ubuntu
+      image: node:12
       shellScript: npm test
 - name: build
   steps:
