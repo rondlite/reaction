@@ -3,7 +3,10 @@ stages:
   steps:
   - runScriptConfig:
       image: node:12
-      shellScript: npm test
+      shellScript: |-
+        npm update && \
+            npm install -g jest & \
+            npm test
 - name: build
   steps:
   - runScriptConfig:
