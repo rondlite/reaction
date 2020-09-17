@@ -6,16 +6,11 @@ stages:
       shellScript: |-
         npm update
         npm install
-- name: Test
-  steps:
-  - runScriptConfig:
-      image: node:12
-      shellScript: npm run test
-- name: morebuild
+- name: Lint
   steps:
   - runScriptConfig:
       image: node:latest
-      shellScript: npm build
+      shellScript: npm run lint
 - name: deploy
   steps:
   - publishImageConfig:
