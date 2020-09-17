@@ -1,17 +1,16 @@
 stages:
-- name: toestand
+- name: Install
   steps:
   - runScriptConfig:
       image: node:12
       shellScript: |-
-        npm update && \
-            npm install -g jest & \
-            npm test
-- name: build
+        npm update
+        npm install
+- name: Test
   steps:
   - runScriptConfig:
-      image: node:latest
-      shellScript: npm lint
+      image: node:12
+      shellScript: npm run test
 - name: morebuild
   steps:
   - runScriptConfig:
