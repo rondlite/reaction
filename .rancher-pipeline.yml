@@ -1,4 +1,9 @@
 stages:
+- name: install
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: npm install
 - name: deploy
   steps:
   - publishImageConfig:
