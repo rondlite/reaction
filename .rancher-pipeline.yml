@@ -13,6 +13,6 @@ stages:
       buildContext: .
       tag: demandcluster/test:v1
       pushRemote: true
-      registry: harbor.demandcluster.com
+      registry: harbor.demandcluster.com/demandcluster
 timeout: 60
 notification: {}
