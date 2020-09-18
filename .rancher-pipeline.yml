@@ -6,11 +6,6 @@ stages:
       shellScript: |-
         npm update
         npm install
-- name: Lint
-  steps:
-  - runScriptConfig:
-      image: node:latest
-      shellScript: npm run lint
 - name: deploy
   steps:
   - publishImageConfig:
