@@ -14,6 +14,6 @@ stages:
       registry: harbor.demandcluster.com
     env:
       PLUGIN_DEBUG: "true"
-      PLUGIN_INSECURE: "true"  
+      PLUGIN_INSECURE: "true"
 timeout: 60
 notification: {}
