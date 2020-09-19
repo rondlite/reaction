@@ -12,5 +12,8 @@ stages:
       tag: demandcluster/test:v1
       pushRemote: true
       registry: harbor.demandcluster.com
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"  
 timeout: 60
 notification: {}
