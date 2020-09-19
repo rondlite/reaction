@@ -10,7 +10,6 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: demandcluster/test:v1
-      pushRemote: true
       registry: harbor.demandcluster.com
     env:
       PLUGIN_DEBUG: "true"
