@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@demandcluster/api-plugin-files": "^1.0.2",
-    "@demandcluster/reaction-channel-manager": "^2.1.0",
+    "@demandcluster/reaction-channel-manager": "^2.1.11",
     "@outgrowio/reaction-file-collections-sa-s3": "^1.1.1",
     "@reactioncommerce/api-core": "~1.4.0",
     "@reactioncommerce/api-plugin-accounts": "~1.4.4",
@@ -60,7 +60,7 @@
     "@reactioncommerce/api-plugin-taxes-flat-rate": "~1.0.2",
     "@reactioncommerce/api-plugin-taxes": "~1.1.0",
     "@reactioncommerce/api-plugin-translations": "~1.1.1",
-    "@reactioncommerce/api-utils": "~1.14.4",
+    "@reactioncommerce/api-utils": "~1.14.5",
     "@reactioncommerce/db-version-check": "~1.0.0",
     "@reactioncommerce/file-collections-sa-gridfs": "~0.1.2",
     "@reactioncommerce/file-collections": "~0.7.3",
