@@ -1,4 +1,5 @@
 # Dockerfile for production builds
+
 FROM reactioncommerce/node-prod:12.14.1-v3
 
 # The `node-prod` base image installs NPM deps with --no-scripts.
