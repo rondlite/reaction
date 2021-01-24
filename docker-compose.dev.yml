@@ -12,8 +12,7 @@ version: '2'
 
 services:
   api:
-<<<<<<< HEAD
-    image: reactioncommerce/node-dev:12.14.1-v3
+    image: reactioncommerce/node-dev:14.15.0-v1
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.demandjs-api.rule=Host(`api.demandcluster.com`)"
@@ -23,9 +22,6 @@ services:
       - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
       - "traefik.docker.network=proxy"
 
-=======
-    image: reactioncommerce/node-dev:14.15.0-v1
->>>>>>> v3.11.0
     ports:
       - "3000:3000"
       - "9229:9229"
