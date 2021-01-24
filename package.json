@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@demandcluster/api-plugin-files": "^1.0.3",
-    "@demandcluster/reaction-channel-manager": "^2.1.19",
+    "@demandcluster/reaction-channel-manager": "^6.0.0",
     "@outgrowio/reaction-file-collections-sa-s3": "^1.1.1",
     "@reactioncommerce/api-core": "~1.4.0",
     "@reactioncommerce/api-plugin-accounts": "~1.4.4",

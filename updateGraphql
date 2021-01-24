@@ -1,6 +1,6 @@
 #!/bin/bash
-cat <<EOF | docker run --interactive node bash > ./src/plugins/channel-manager/schemas/schemas.graphql
+cat <<EOF | docker run --interactive node bash > ./node_modules/@demandcluster/reaction-channel-manager/src/schemas/schemas.graphql
 set -eu
 npm install --silent --global get-graphql-schema >/dev/null
-get-graphql-schema "http://demandjs-graphql:4001"
+get-graphql-schema "http://10.42.0.216:4001"
 EOF
