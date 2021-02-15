@@ -4,18 +4,17 @@
 #
 # See comment in docker-compose.dev.yml if you want to run for development.
 
-version: '2'
+version: "2"
 
 networks:
   proxy:
     external: true
   internal:
-    external: 
+    external:
       name: demandjs.localhost
 
 services:
   api:
-
     networks:
       - proxy
       - internal
@@ -28,12 +27,12 @@ services:
       - "traefik.http.services.demandjs-api-service.loadbalancer.server.port=3000"
       - "traefik.docker.network=proxy"
 
-    image: docker.pkg.github.com/demandcluster/reaction/reaction:3.11.0
+    image: reactioncommerce/reaction:3.11.1
     depends_on:
       - mongo
     env_file:
       - ./.env
- 
+
   mongo:
     image: mongo:4.2.0
     command: mongod --oplogSize 128 --replSet rs0 --storageEngine=wiredTiger
@@ -41,9 +40,13 @@ services:
     networks:
       - internal
     ports:
-     - "32828:27017"
+      - "32828:27017"
     volumes:
       - mongo-db4:/data/db
-    
+    healthcheck: # re-run rs.initiate() after startup if it failed.
+      test: test $$(echo "rs.status().ok || rs.initiate().ok" | mongo --quiet) -eq 1
+      interval: 10s
+      start_period: 30s
+
 volumes:
   mongo-db4:
